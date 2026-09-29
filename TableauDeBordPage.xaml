@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.TableauDeBordPage"
+             Title="Tableau de bord">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        <Label Text="Gestionnaire de dépenses"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label Text="Total des dépenses"
+               FontSize="18" />
+
+        <Label Text="425,50 $"
+               FontSize="30"
+               FontAttributes="Bold" />
+
+        <Label Text="Nombre de transactions"
+               FontSize="18" />
+
+        <Label Text="8"
+               FontSize="30"
+               FontAttributes="Bold" />
+
+        <Button Text="Voir les dépenses"
+                Clicked="VoirDepenses_Clicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

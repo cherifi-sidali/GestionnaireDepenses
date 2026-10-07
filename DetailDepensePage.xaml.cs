@@ -2,9 +2,11 @@ namespace MauiApp1;
 
 public partial class DetailDepensePage : ContentPage
 {
-    public DetailDepensePage()
+    public DetailDepensePage(string depense)
     {
         InitializeComponent();
+
+        DepenseLabel.Text = depense;
     }
 
     private async void Retour_Clicked(object sender, EventArgs e)

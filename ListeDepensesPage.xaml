@@ -9,16 +9,21 @@
         <Label Text="Liste des dépenses"
                FontSize="28"
                FontAttributes="Bold" />
+        <CollectionView x:Name="ListeDepenses"
+                SelectionMode="Single">
 
-        <CollectionView x:Name="ListeDepenses">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+
                     <Label Text="{Binding}"
-                           Padding="10"
-                           FontSize="16" />
+                   Padding="10"
+                   FontSize="16" />
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
+
 
         <Image Source="dotnet_bot.png"
                HeightRequest="60"

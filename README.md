@@ -1,14 +1,14 @@
-﻿# Gestionnaire de dépenses personnelles
+﻿# 💰 Gestionnaire de dépenses personnelles
 
-## Description du projet
+## 📌 Description du projet
 
 Gestionnaire de dépenses personnelles est une application développée avec .NET MAUI.
 
 L'application permet à l'utilisateur de consulter et de gérer ses dépenses personnelles à partir de plusieurs pages.
 
-Ce projet est réalisé dans le cadre du cours IFM30739.
+Ce projet est réalisé dans le cadre du cours **IFM30739**.
 
-## Technologies utilisées
+## 🛠️ Technologies utilisées
 
 - .NET MAUI
 - C#
@@ -19,7 +19,7 @@ Ce projet est réalisé dans le cadre du cours IFM30739.
 
 ---
 
-# Semaine 1 - Création et préparation du projet
+# 📅 Semaine 1 - Création et préparation du projet
 
 Durant la première semaine, nous avons préparé l'environnement de développement et créé la structure de base de l'application.
 
@@ -33,19 +33,19 @@ Durant la première semaine, nous avons préparé l'environnement de développem
 - Création du fichier README.
 - Préparation de la structure générale de l'application.
 - Préparation de la maquette de l'application.
-- Utilisation de Git pour le suivi des modifications.
+- Utilisation de Git pour suivre les modifications du projet.
 
 ## Objectif de la semaine 1
 
-L'objectif principal était d'avoir un projet fonctionnel et correctement configuré avant de commencer le développement des différentes pages.
+L'objectif principal était d'obtenir un projet fonctionnel et correctement configuré avant de commencer le développement des différentes pages.
 
 ---
 
-# Semaine 2 - Tableau de bord et liste des dépenses
+# 📅 Semaine 2 - Tableau de bord et liste des dépenses
 
-Durant la deuxième semaine, nous avons commencé à développer les principales pages de l'application.
+Durant la deuxième semaine, nous avons développé les principales pages permettant de consulter les dépenses.
 
-## 1. Tableau de bord
+## 🏠 Tableau de bord
 
 Création de la page `TableauDeBordPage`.
 
@@ -54,11 +54,11 @@ Le tableau de bord constitue la page principale de l'application.
 Il affiche :
 
 - Le nom de l'application.
-- Le total simulé des dépenses : 425,50 $.
-- Le nombre de transactions : 8.
+- Le total simulé des dépenses : **425,50 $**.
+- Le nombre de transactions : **8**.
 - Un bouton permettant d'accéder à la liste des dépenses.
 
-## 2. Liste des dépenses
+## 📋 Liste des dépenses
 
 Création de la page `ListeDepensesPage`.
 
@@ -71,13 +71,13 @@ Chaque dépense contient :
 - Date
 - Montant
 
-Exemples :
+Exemples de dépenses :
 
 - Restaurant - Alimentation - 20/09/2026 - 25,50 $
 - Essence - Transport - 21/09/2026 - 60,00 $
 - Épicerie - Alimentation - 22/09/2026 - 85,30 $
 
-## 3. Navigation
+## 🔄 Navigation
 
 Une navigation entre le tableau de bord et la liste des dépenses a été mise en place.
 
@@ -85,11 +85,9 @@ La commande `Navigation.PushAsync()` permet d'ouvrir une nouvelle page.
 
 La commande `Navigation.PopAsync()` permet de retourner à la page précédente.
 
-Un menu de navigation permet également d'accéder aux différentes sections de l'application.
+## Composants utilisés
 
-## 4. Interface
-
-Plusieurs composants XAML ont été utilisés :
+Plusieurs composants XAML sont utilisés :
 
 - `ContentPage`
 - `VerticalStackLayout`
@@ -100,49 +98,53 @@ Plusieurs composants XAML ont été utilisés :
 
 ## Objectif de la semaine 2
 
-L'objectif était de créer les principales pages de consultation de l'application et de permettre à l'utilisateur de naviguer entre elles.
+L'objectif était de créer les principales pages de consultation et de permettre à l'utilisateur de naviguer dans l'application.
 
 ---
 
-# Semaine 3 - Détail, ajout et validation des dépenses
+# 📅 Semaine 3 - Détail, ajout et validation des dépenses
 
-Durant la troisième semaine, de nouvelles fonctionnalités ont été ajoutées afin de permettre à l'utilisateur de consulter le détail d'une dépense et de remplir un formulaire pour ajouter une nouvelle dépense.
+Durant la troisième semaine, plusieurs fonctionnalités ont été ajoutées afin de rendre l'application plus complète et interactive.
 
-## 1. Page Détail d'une dépense
+## 🔎 1. Page Détail d'une dépense
 
 Création de la page `DetailDepensePage`.
 
-Cette page permet d'afficher les informations détaillées d'une dépense :
+Cette page permet d'afficher séparément :
 
-- Description
-- Catégorie
-- Date
-- Montant
+- 📝 Description
+- 🏷️ Catégorie
+- 📅 Date
+- 💰 Montant
 
-Un bouton **Voir le détail** a été ajouté à la liste des dépenses.
+Les informations de la dépense sélectionnée sont transmises de la page Liste vers la page Détail.
 
-Lorsque l'utilisateur clique sur ce bouton, l'application ouvre la page de détail.
+## 🖱️ 2. Double-clic sur une dépense
 
-Un bouton **Retour** permet de revenir à la page précédente.
+Un système de double-clic a été ajouté à la liste.
 
-## 2. Page Ajouter une dépense
+L'utilisateur peut maintenant double-cliquer sur une dépense pour ouvrir directement sa page de détail.
+
+Cette fonctionnalité utilise un `TapGestureRecognizer` avec deux clics.
+
+## ➕ 3. Page Ajouter une dépense
 
 Création de la page `AjouterDepensePage`.
 
-Cette page contient un formulaire permettant de saisir une nouvelle dépense.
+Cette page contient un formulaire permettant à l'utilisateur de saisir une nouvelle dépense.
 
 Le formulaire contient :
 
 - Un `Entry` pour la description.
 - Un `Entry` pour le montant.
-- Un `Picker` pour la catégorie.
-- Un `DatePicker` pour la date.
-- Un bouton **Ajouter**.
-- Un bouton **Retour**.
+- Un `Picker` pour choisir la catégorie.
+- Un `DatePicker` pour sélectionner la date.
+- Un bouton Ajouter.
+- Un bouton Retour.
 
-## 3. Catégories disponibles
+## 🏷️ 4. Catégories disponibles
 
-Le `Picker` permet de choisir parmi plusieurs catégories :
+L'utilisateur peut choisir parmi plusieurs catégories :
 
 - Alimentation
 - Transport
@@ -150,17 +152,17 @@ Le `Picker` permet de choisir parmi plusieurs catégories :
 - Loisirs
 - Autre
 
-## 4. Validation du formulaire
+## ✅ 5. Validation du formulaire
 
-Une validation simple a été ajoutée.
+Une validation simple est effectuée avant l'ajout d'une dépense.
 
-Avant d'accepter le formulaire, l'application vérifie :
+L'application vérifie :
 
 - Que la description est remplie.
 - Que le montant est rempli.
 - Qu'une catégorie est sélectionnée.
 
-Si une information est manquante, un message d'erreur est affiché.
+Si une information obligatoire est manquante, un message d'erreur est affiché.
 
 Exemples :
 
@@ -174,67 +176,145 @@ Lorsque les informations sont correctement saisies, l'application affiche :
 
 `La dépense a été ajoutée.`
 
-## 5. Amélioration de la navigation
+## 💾 6. Ajout d'une dépense dans la liste
 
-La page `ListeDepensesPage` contient maintenant trois boutons :
+Le fonctionnement du formulaire a été amélioré.
 
-- **Voir le détail**
-- **Ajouter une dépense**
-- **Retour**
+Lorsqu'une nouvelle dépense est ajoutée :
 
-L'application possède maintenant quatre pages principales :
+1. Les informations du formulaire sont récupérées.
+2. Une nouvelle dépense est créée.
+3. La dépense est ajoutée à la liste.
+4. L'utilisateur retourne à la liste.
+5. La liste est automatiquement actualisée.
+6. La nouvelle dépense apparaît à l'écran.
 
-1. `TableauDeBordPage`
-2. `ListeDepensesPage`
-3. `DetailDepensePage`
-4. `AjouterDepensePage`
+## 🔄 7. Passage de paramètres entre les pages
 
-## 6. Composants utilisés pendant la semaine 3
+Le passage de paramètres entre les pages a été ajouté.
 
-Nous avons utilisé plusieurs composants .NET MAUI :
+Lorsqu'une dépense est sélectionnée, ses informations sont envoyées vers `DetailDepensePage`.
 
-- `Label`
-- `Entry`
-- `Picker`
-- `DatePicker`
-- `Button`
-- `ScrollView`
-- `VerticalStackLayout`
-- `CollectionView`
+Cela permet d'afficher le détail correspondant à la dépense choisie par l'utilisateur.
+
+## 🎨 8. Amélioration de l'interface
+
+L'apparence générale de l'application a été améliorée afin de rendre l'interface plus agréable et plus facile à utiliser.
+
+Les pages utilisent maintenant un style commun avec :
+
+- Un fond clair.
+- Des couleurs violettes.
+- Des couleurs vertes pour certains éléments importants.
+- Des cartes blanches avec des coins arrondis.
+- Des boutons plus visibles.
+- Des icônes et des emojis.
+- Une meilleure organisation des informations.
+
+Des icônes sont utilisées pour faciliter la compréhension :
+
+- 💰 Dépenses
+- 💳 Transaction
+- 📝 Description
+- 🏷️ Catégorie
+- 📅 Date
+- ➕ Ajouter
+- 👁️ Voir le détail
+
+## 🏠 9. Amélioration du tableau de bord
+
+Le tableau de bord a également été amélioré.
+
+Il présente maintenant :
+
+- Un titre plus visible.
+- Une carte pour le total des dépenses.
+- Une carte pour le nombre de transactions.
+- Des couleurs cohérentes avec le reste de l'application.
+- Des icônes.
+- Un bouton permettant d'accéder aux dépenses.
+
+## 📋 10. Amélioration de la liste des dépenses
+
+La liste des dépenses utilise maintenant une présentation sous forme de cartes.
+
+Chaque dépense est affichée dans une carte avec :
+
+- Une icône 💳.
+- Les informations de la dépense.
+- Une bordure arrondie.
+- Une présentation claire.
+
+La page contient également :
+
+- 👁️ Un bouton Voir le détail.
+- ➕ Un bouton Ajouter une dépense.
+- ← Un bouton Retour.
+
+L'utilisateur peut également double-cliquer directement sur une dépense pour consulter son détail.
 
 ## Objectif de la semaine 3
 
-L'objectif était de rendre l'application plus interactive en permettant à l'utilisateur :
+L'objectif était de rendre l'application plus interactive et plus agréable à utiliser.
 
-- De consulter ses dépenses.
-- De consulter le détail d'une dépense.
-- D'ouvrir un formulaire d'ajout.
-- De saisir les informations d'une dépense.
-- De valider les champs.
-- De naviguer entre les différentes pages.
+L'utilisateur peut maintenant :
+
+1. Consulter le tableau de bord.
+2. Consulter la liste des dépenses.
+3. Ajouter une nouvelle dépense.
+4. Voir immédiatement la nouvelle dépense dans la liste.
+5. Sélectionner une dépense.
+6. Double-cliquer sur une dépense.
+7. Consulter son détail.
+8. Voir séparément la description, la catégorie, la date et le montant.
+9. Naviguer entre les différentes pages.
 
 ---
 
-# Fonctionnalités actuelles de l'application
+# 📱 Structure actuelle de l'application
+
+L'application possède quatre pages principales :
+
+### `TableauDeBordPage`
+
+Affiche le résumé général des dépenses.
+
+### `ListeDepensesPage`
+
+Affiche la liste des dépenses et permet d'accéder aux autres fonctionnalités.
+
+### `DetailDepensePage`
+
+Affiche les informations détaillées de la dépense sélectionnée.
+
+### `AjouterDepensePage`
+
+Permet de remplir un formulaire et d'ajouter une nouvelle dépense.
+
+---
+
+# ✨ Fonctionnalités actuelles
 
 L'application permet actuellement de :
 
-- Consulter le tableau de bord.
-- Voir le total simulé des dépenses.
-- Voir le nombre de transactions.
+- Consulter un tableau de bord.
+- Afficher le total des dépenses.
+- Afficher le nombre de transactions.
 - Consulter la liste des dépenses.
-- Voir le détail d'une dépense.
-- Ouvrir le formulaire d'ajout.
-- Saisir une description.
-- Saisir un montant.
-- Choisir une catégorie.
-- Sélectionner une date.
+- Ajouter une nouvelle dépense.
+- Actualiser la liste après un ajout.
+- Sélectionner une dépense.
+- Double-cliquer sur une dépense.
+- Consulter le détail d'une dépense.
+- Afficher séparément les informations d'une dépense.
 - Valider les champs obligatoires.
+- Afficher des messages d'erreur.
+- Afficher un message de confirmation.
 - Naviguer entre les différentes pages.
 
 ---
 
-# Captures d'écran
+# 📸 Captures d'écran
 
 ## Tableau de bord
 
@@ -254,7 +334,7 @@ L'application permet actuellement de :
 
 ---
 
-# Comment exécuter le projet
+# ▶️ Comment exécuter le projet
 
 1. Télécharger ou cloner le dépôt GitHub.
 2. Ouvrir le projet dans Visual Studio.
@@ -265,36 +345,40 @@ L'application permet actuellement de :
 
 ---
 
-# Utilisation de Git et GitHub
+# 🌐 Git et GitHub
 
 Git et GitHub sont utilisés pour suivre le développement du projet.
 
-Les modifications réalisées durant chaque semaine sont enregistrées avec des commits afin de conserver l'historique du développement de l'application.
+Les modifications réalisées durant les différentes semaines sont enregistrées avec des commits afin de conserver l'historique du développement.
+
+GitHub permet également aux membres de l'équipe de collaborer sur le même projet.
 
 ---
 
-# Équipe
+# 👥 Équipe
 
-Projet réalisé en équipe dans le cadre du cours IFM30739.
+Projet réalisé en équipe dans le cadre du cours **IFM30739**.
 
 ---
 
-# État du projet
+# 🚀 État du projet
 
 **Phase 1 - Semaine 3 terminée.**
 
 Travail réalisé jusqu'à maintenant :
 
-- Configuration du projet.
-- Création du dépôt GitHub.
-- Création du tableau de bord.
-- Création de la liste des dépenses.
-- Création de la page de détail.
-- Création du formulaire d'ajout.
-- Ajout des champs de saisie.
-- Ajout des catégories.
-- Ajout du DatePicker.
-- Ajout de la validation.
-- Ajout des messages d'erreur et de confirmation.
-- Mise en place de la navigation.
-- Utilisation de Git et GitHub.
+- ✅ Configuration du projet.
+- ✅ Création du dépôt GitHub.
+- ✅ Création du tableau de bord.
+- ✅ Création de la liste des dépenses.
+- ✅ Création de la page de détail.
+- ✅ Création du formulaire d'ajout.
+- ✅ Ajout réel des nouvelles dépenses dans la liste.
+- ✅ Actualisation de la liste.
+- ✅ Validation des champs.
+- ✅ Passage de paramètres entre les pages.
+- ✅ Double-clic pour consulter une dépense.
+- ✅ Navigation entre les différentes pages.
+- ✅ Amélioration de l'ergonomie.
+- ✅ Amélioration des couleurs et de l'interface.
+- ✅ Utilisation de Git et GitHub.

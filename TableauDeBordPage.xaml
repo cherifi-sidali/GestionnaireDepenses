@@ -1,33 +1,117 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.TableauDeBordPage"
-             Title="Tableau de bord">
 
-    <VerticalStackLayout Padding="30" Spacing="20">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.TableauDeBordPage"
+    Title="Tableau de bord"
+    BackgroundColor="#F5F3FF">
 
-        <Label Text="Gestionnaire de dépenses"
-               FontSize="28"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
+    <ScrollView>
 
-        <Label Text="Total des dépenses"
-               FontSize="18" />
+        <VerticalStackLayout Padding="25"
+                             Spacing="22">
 
-        <Label Text="425,50 $"
-               FontSize="30"
-               FontAttributes="Bold" />
+            <!-- Titre -->
+            <Label Text="💰 Gestionnaire de dépenses"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#512BD4"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,15,0,0" />
 
-        <Label Text="Nombre de transactions"
-               FontSize="18" />
+            <Label Text="Bienvenue 👋"
+                   FontSize="20"
+                   TextColor="#6B7280"
+                   HorizontalOptions="Center" />
 
-        <Label Text="8"
-               FontSize="30"
-               FontAttributes="Bold" />
+            <!-- Carte total -->
+            <Border BackgroundColor="White"
+                    Stroke="#DDD6FE"
+                    StrokeThickness="2"
+                    Padding="22">
 
-        <Button Text="Voir les dépenses"
-                Clicked="VoirDepenses_Clicked" />
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
 
-    </VerticalStackLayout>
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="💵 Total des dépenses"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#512BD4"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="425,50 $"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           TextColor="#16A34A"
+                           HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Carte transactions -->
+            <Border BackgroundColor="White"
+                    Stroke="#DDD6FE"
+                    StrokeThickness="2"
+                    Padding="22">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="🧾 Nombre de transactions"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#512BD4"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="8"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           TextColor="#2563EB"
+                           HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Petit message -->
+            <Border BackgroundColor="#EDE9FE"
+                    StrokeThickness="0"
+                    Padding="15">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+
+                <Label Text="✨ Gardez le contrôle de vos dépenses !"
+                       FontSize="16"
+                       TextColor="#512BD4"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+
+            </Border>
+
+            <!-- Bouton -->
+            <Button Text="📋 Voir mes dépenses"
+                    Clicked="VoirDepenses_Clicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="58" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
 
 </ContentPage>

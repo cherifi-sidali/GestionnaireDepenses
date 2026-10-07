@@ -2,7 +2,7 @@ namespace MauiApp1;
 
 public partial class ListeDepensesPage : ContentPage
 {
-    // Liste partagée pour conserver les dépenses
+    // Liste des dépenses
     public static List<string> Depenses = new List<string>
     {
         "Restaurant - Alimentation - 20/09/2026 - 25,50 $",
@@ -24,18 +24,25 @@ public partial class ListeDepensesPage : ContentPage
         AfficherDepenses();
     }
 
+    // Afficher et actualiser la liste
     private void AfficherDepenses()
     {
-        // Nouvelle copie pour actualiser le CollectionView
         ListeDepenses.ItemsSource = null;
         ListeDepenses.ItemsSource = new List<string>(Depenses);
     }
 
-    private async void Retour_Clicked(object sender, EventArgs e)
+    // Double-clic sur une dépense pour afficher son détail
+    private async void Depense_DoubleTapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PopAsync();
+        if (sender is Label label &&
+            label.BindingContext is string depense)
+        {
+            await Navigation.PushAsync(
+                new DetailDepensePage(depense));
+        }
     }
 
+    // Bouton Voir le détail
     private async void Detail_Clicked(object sender, EventArgs e)
     {
         if (ListeDepenses.SelectedItem is string depense)
@@ -52,9 +59,16 @@ public partial class ListeDepensesPage : ContentPage
         }
     }
 
+    // Bouton Ajouter une dépense
     private async void Ajouter_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(
             new AjouterDepensePage());
+    }
+
+    // Bouton Retour
+    private async void Retour_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 }

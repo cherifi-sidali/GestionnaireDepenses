@@ -1,104 +1,144 @@
-﻿# Gestionnaire de dépenses personnelles
+﻿## Semaine 3 - Détail, ajout et validation des dépenses
 
-## Description du projet
+Durant la semaine 3, nous avons poursuivi le développement de l'application en ajoutant de nouvelles fonctionnalités permettant à l'utilisateur de consulter le détail d'une dépense et d'ajouter une nouvelle dépense.
 
-Gestionnaire de dépenses personnelles est une application développée avec .NET MAUI.
+### 1. Création de la page Détail d'une dépense
 
-L'application permet à l'utilisateur de consulter et de gérer ses dépenses personnelles à partir de plusieurs pages.
+Une nouvelle page `DetailDepensePage` a été créée.
 
-Ce projet est réalisé dans le cadre du cours IFM30739.
+Cette page permet d'afficher les informations détaillées d'une dépense :
 
-## Fonctionnalités
-
-L'application permet actuellement de :
-
-- Consulter un tableau de bord.
-- Afficher le total des dépenses.
-- Afficher le nombre de transactions.
-- Consulter la liste des dépenses.
-- Voir la description d'une dépense.
-- Voir la catégorie d'une dépense.
-- Voir la date d'une dépense.
-- Voir le montant d'une dépense.
-- Naviguer entre les différentes pages de l'application.
-
-## Technologies utilisées
-
-- .NET MAUI
-- C#
-- XAML
-- Visual Studio
-- Git
-- GitHub
-
-## Structure de l'application
-
-### Tableau de bord
-
-Le tableau de bord constitue la page principale de l'application.
-
-Il affiche :
-
-- Le nom de l'application.
-- Le total simulé des dépenses : 425,50 $.
-- Le nombre de transactions : 8.
-- Un bouton permettant d'accéder à la liste des dépenses.
-
-### Liste des dépenses
-
-Cette page affiche plusieurs dépenses simulées.
-
-Chaque dépense contient les informations suivantes :
-
-- Description
+- Description de la dépense
 - Catégorie
 - Date
 - Montant
 
-Exemples de dépenses :
+Un bouton **Voir le détail** a été ajouté dans la page de la liste des dépenses.
 
-- Restaurant - Alimentation - 20/09/2026 - 25,50 $
-- Essence - Transport - 21/09/2026 - 60,00 $
-- Épicerie - Alimentation - 22/09/2026 - 85,30 $
+Lorsque l'utilisateur clique sur ce bouton, l'application ouvre la page de détail.
 
-## Navigation
+Un bouton **Retour** permet ensuite de revenir à la page précédente.
 
-L'application possède plusieurs pages et permet de naviguer entre le tableau de bord et la liste des dépenses.
+### 2. Création de la page Ajouter une dépense
 
-Un menu de navigation permet également d'accéder aux différentes sections de l'application.
+Une nouvelle page `AjouterDepensePage` a été créée.
 
-## Captures d'écran
+Cette page contient un formulaire permettant à l'utilisateur de saisir les informations d'une nouvelle dépense.
 
-### Tableau de bord
+Le formulaire contient les contrôles suivants :
 
-![Tableau de bord](Screenshots/tableau-de-bord.png)
+- `Entry` pour saisir la description.
+- `Entry` pour saisir le montant.
+- `Picker` pour choisir une catégorie.
+- `DatePicker` pour sélectionner la date.
+- `Button` pour ajouter la dépense.
+- `Button` pour retourner à la page précédente.
 
-### Liste des dépenses
+Les catégories proposées sont :
 
-![Liste des dépenses](Screenshots/liste-depenses.png)
+- Alimentation
+- Transport
+- Logement
+- Loisirs
+- Autre
 
-## Comment exécuter le projet
+### 3. Validation du formulaire
 
-1. Télécharger ou cloner le dépôt GitHub.
-2. Ouvrir le projet dans Visual Studio.
-3. Vérifier que la charge de travail .NET MAUI est installée.
-4. Ouvrir la solution du projet.
-5. Sélectionner Windows Machine comme cible d'exécution.
-6. Cliquer sur le bouton Démarrer pour lancer l'application.
+Une validation simple a été ajoutée avant l'ajout d'une dépense.
 
-## Équipe
+L'application vérifie :
 
-Projet réalisé en équipe dans le cadre du cours IFM30739.
+- Si la description a été saisie.
+- Si le montant a été saisi.
+- Si une catégorie a été sélectionnée.
+
+Si une information obligatoire est manquante, un message d'erreur est affiché à l'utilisateur.
+
+Exemple :
+
+`Veuillez entrer une description.`
+
+ou :
+
+`Veuillez choisir une catégorie.`
+
+Si toutes les informations sont correctement saisies, l'application affiche un message de confirmation :
+
+`La dépense a été ajoutée.`
+
+### 4. Navigation entre les pages
+
+La navigation de l'application a été améliorée.
+
+L'utilisateur peut maintenant naviguer entre :
+
+1. Le tableau de bord.
+2. La liste des dépenses.
+3. Le détail d'une dépense.
+4. Le formulaire d'ajout d'une dépense.
+
+La navigation entre les pages est réalisée avec `Navigation.PushAsync()`.
+
+Le retour à la page précédente est réalisé avec `Navigation.PopAsync()`.
+
+### 5. Amélioration de la liste des dépenses
+
+La page `ListeDepensesPage` contient maintenant :
+
+- La liste des dépenses existantes.
+- Un bouton **Voir le détail**.
+- Un bouton **Ajouter une dépense**.
+- Un bouton **Retour**.
+
+Le bouton **Voir le détail** permet d'accéder à `DetailDepensePage`.
+
+Le bouton **Ajouter une dépense** permet d'accéder à `AjouterDepensePage`.
+
+### 6. Ergonomie de l'application
+
+L'interface a été organisée afin de rester simple et facile à utiliser.
+
+Les différents éléments utilisent notamment :
+
+- `Label`
+- `Entry`
+- `Picker`
+- `DatePicker`
+- `Button`
+- `CollectionView`
+- `VerticalStackLayout`
+- `ScrollView`
+
+L'utilisation d'un `ScrollView` dans le formulaire permet de conserver l'accès aux différents champs même lorsque l'espace disponible sur l'écran est limité.
+
+### 7. Résultat de la semaine 3
+
+À la fin de la semaine 3, l'application possède quatre pages principales :
+
+- `TableauDeBordPage`
+- `ListeDepensesPage`
+- `DetailDepensePage`
+- `AjouterDepensePage`
+
+L'utilisateur peut consulter ses dépenses, afficher le détail d'une dépense, ouvrir un formulaire pour ajouter une nouvelle dépense et naviguer entre les différentes pages.
 
 ## État du projet
 
-Phase 1 - Semaine 2.
+Phase 1 - Semaine 3.
 
-Fonctionnalités réalisées :
+Fonctionnalités réalisées jusqu'à maintenant :
 
-- Création des pages principales.
 - Création du tableau de bord.
+- Affichage du total des dépenses.
+- Affichage du nombre de transactions.
 - Création de la liste des dépenses.
-- Mise en place de la navigation.
-- Ajout des captures d'écran.
+- Affichage des informations des dépenses.
+- Création de la page de détail.
+- Création du formulaire d'ajout.
+- Ajout des champs de saisie.
+- Ajout du choix de catégorie.
+- Ajout de la sélection de date.
+- Ajout de la validation des champs.
+- Ajout des messages d'erreur et de confirmation.
+- Navigation entre les différentes pages.
 - Utilisation de Git et GitHub pour le suivi du projet.

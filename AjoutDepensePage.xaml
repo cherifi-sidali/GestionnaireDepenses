@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.AjoutDepensePage"
-             Title="AjoutDepensePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="MauiApp1.AjouterDepensePage"
+             Title="Ajouter une dépense">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Ajouter une dépense"
+                   FontSize="26"
+                   FontAttributes="Bold" />
+
+            <Label Text="Description" />
+            <Entry x:Name="DescriptionEntry"
+                   Placeholder="Ex : Restaurant" />
+
+            <Label Text="Montant" />
+            <Entry x:Name="MontantEntry"
+                   Placeholder="Ex : 25,50"
+                   Keyboard="Numeric" />
+
+            <Label Text="Catégorie" />
+            <Picker x:Name="CategoriePicker"
+                    Title="Choisir une catégorie">
+                <Picker.Items>
+                    <x:String>Alimentation</x:String>
+                    <x:String>Transport</x:String>
+                    <x:String>Logement</x:String>
+                    <x:String>Loisirs</x:String>
+                    <x:String>Autre</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Date" />
+            <DatePicker x:Name="DateDepensePicker" />
+
+            <Button Text="Ajouter"
+                    Clicked="Ajouter_Clicked" />
+
+            <Button Text="Retour"
+                    Clicked="Retour_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

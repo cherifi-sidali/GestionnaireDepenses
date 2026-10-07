@@ -2,11 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.DetailDepensePage"
-             Title="DetailDepensePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Détail de la dépense">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Détail de la dépense"
+               FontSize="26"
+               FontAttributes="Bold" />
+
+        <Label Text="Description : Restaurant" FontSize="18" />
+        <Label Text="Catégorie : Alimentation" FontSize="18" />
+        <Label Text="Date : 20/09/2026" FontSize="18" />
+        <Label Text="Montant : 25,50 $" FontSize="18" />
+
+        <Button Text="Retour"
+                Clicked="Retour_Clicked" />
+
     </VerticalStackLayout>
 </ContentPage>

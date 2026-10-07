@@ -19,11 +19,17 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
+
         <Image Source="dotnet_bot.png"
-       HeightRequest="60"
-       HorizontalOptions="Center" />
-        
+               HeightRequest="60"
+               HorizontalOptions="Center" />
+
+        <Button Text="Voir le détail"
+                Clicked="Detail_Clicked" />
+
+        <Button Text="Ajouter une dépense"
+                Clicked="Ajouter_Clicked" />
+
         <Button Text="Retour"
                 Clicked="Retour_Clicked" />
 

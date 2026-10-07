@@ -18,4 +18,14 @@ public partial class ListeDepensesPage : ContentPage
     {
         await Navigation.PopAsync();
     }
+
+    private async void Detail_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new DetailDepensePage());
+    }
+
+    private async void Ajouter_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AjouterDepensePage());
+    }
 }

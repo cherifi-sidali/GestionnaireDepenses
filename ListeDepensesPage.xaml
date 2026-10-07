@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ListeDepensesPage"
+             Title="Mes dépenses">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Liste des dépenses"
+               FontSize="28"
+               FontAttributes="Bold" />
+
+        <CollectionView x:Name="ListeDepenses">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}"
+                           Padding="10"
+                           FontSize="16" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Image Source="dotnet_bot.png"
+       HeightRequest="60"
+       HorizontalOptions="Center" />
+        
+        <Button Text="Retour"
+                Clicked="Retour_Clicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.ListeDepensesPage" x:Name="PageListe"
+    Title="Mes dépenses"
+    BackgroundColor="#F5F3FF">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto,*,Auto"
+          RowSpacing="15">
+
+        <!-- TITRE -->
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="5">
+
+            <Label Text="📋 Mes dépenses"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#512BD4"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Double-cliquez sur une dépense pour voir les détails 👆"
+                   FontSize="14"
+                   TextColor="#6B7280"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+        </VerticalStackLayout>
+
+        <!-- LISTE -->
+        <CollectionView
+            Grid.Row="1"
+            x:Name="ListeDepenses"
+            SelectionMode="Single" ItemsSource="{Binding Lignes}" SelectedItem="{Binding Selection, Mode=TwoWay}">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border BackgroundColor="White"
+                            Stroke="#DDD6FE"
+                            StrokeThickness="1"
+                            Padding="18"
+                            Margin="0,6">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="18" />
+                        </Border.StrokeShape>
+
+                        <Grid ColumnDefinitions="Auto,*"
+                              ColumnSpacing="15">
+
+                            <!-- Sticker -->
+                            <Label Grid.Column="0"
+                                   Text="💳"
+                                   FontSize="28"
+                                   VerticalOptions="Center" />
+
+                            <!-- Dépense -->
+                            <Label Grid.Column="1"
+                                   Text="{Binding Resume}"
+                                   FontSize="17"
+                                   TextColor="#222222"
+                                   VerticalOptions="Center">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer
+                                        NumberOfTapsRequired="2"
+                                        Command="{Binding BindingContext.OuvrirCommand, Source={x:Reference PageListe}}" CommandParameter="{Binding}" />
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <!-- BOUTONS -->
+        <VerticalStackLayout Grid.Row="2"
+                             Spacing="10">
+
+            <Button Text="👁️ Voir le détail"
+                    Command="{Binding DetailCommand}"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="52" />
+
+            <Button Text="➕ Ajouter une dépense"
+                    Command="{Binding AjouterCommand}"
+                    BackgroundColor="#16A34A"
+                    TextColor="White"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="52" />
+
+            <Button Text="← Retour"
+                    Command="{Binding RetourCommand}"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="52" />
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>

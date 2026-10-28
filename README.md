@@ -382,3 +382,17 @@ Travail réalisé jusqu'à maintenant :
 - ✅ Amélioration de l'ergonomie.
 - ✅ Amélioration des couleurs et de l'interface.
 - ✅ Utilisation de Git et GitHub.
+
+
+## Modifications apportées au projet
+
+Nous avons appliqué la méthode **MVVM** pour mieux organiser le code de notre application Gestionnaire de dépenses.
+
+- **Models** : ajout des classes pour représenter et gérer les dépenses.
+- **Views** : organisation des pages de l'application sans changer leur apparence.
+- **ViewModels** : ajout des classes pour gérer la logique des pages.
+- **BindingContext** : liaison entre les pages et leurs ViewModels.
+- **Commands** : gestion des boutons pour ajouter, afficher et consulter les dépenses.
+- **ObservableCollection** : mise à jour automatique de la liste après l'ajout d'une dépense.
+- **INotifyPropertyChanged** : mise à jour des informations affichées dans l'interface.
+

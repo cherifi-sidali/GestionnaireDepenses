@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -49,13 +49,6 @@
                             <RoundRectangle CornerRadius="18" />
                         </Border.StrokeShape>
 
-                        <!-- Un seul clic n'importe où sur la carte ouvre le détail -->
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer
-                                NumberOfTapsRequired="1"
-                                Command="{Binding BindingContext.OuvrirCommand, Source={x:Reference PageListe}}" CommandParameter="{Binding}" />
-                        </Border.GestureRecognizers>
-
                         <Grid ColumnDefinitions="Auto,*"
                               ColumnSpacing="15">
 
@@ -70,7 +63,17 @@
                                    Text="{Binding Resume}"
                                    FontSize="17"
                                    TextColor="#222222"
-                                   VerticalOptions="Center" />
+                                   VerticalOptions="Center">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer
+                                        NumberOfTapsRequired="2"
+                                        Command="{Binding BindingContext.OuvrirCommand, Source={x:Reference PageListe}}" CommandParameter="{Binding}" />
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
 
                         </Grid>
 

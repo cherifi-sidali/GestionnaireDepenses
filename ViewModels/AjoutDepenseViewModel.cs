@@ -1,7 +1,9 @@
 using MauiApp1.Models;
+using MauiApp1.Services;
 using System.Globalization;
 namespace MauiApp1.ViewModels;
 public class AjoutDepenseViewModel:BaseViewModel {
+ private readonly DepotDepenses depot=new();
  private string description="",montant="";
  private string? categorie;
  private DateTime? date=DateTime.Today;
@@ -17,7 +19,9 @@ public class AjoutDepenseViewModel:BaseViewModel {
  if(string.IsNullOrWhiteSpace(Description)){await Shell.Current.DisplayAlertAsync("Erreur","Veuillez entrer une description.","OK");return;}
  if(string.IsNullOrWhiteSpace(Montant)||!decimal.TryParse(Montant,NumberStyles.Number,CultureInfo.CurrentCulture,out var valeur)||valeur<0){await Shell.Current.DisplayAlertAsync("Erreur","Veuillez entrer un montant valide.","OK");return;}
  if(string.IsNullOrWhiteSpace(Categorie)){await Shell.Current.DisplayAlertAsync("Erreur","Veuillez choisir une catégorie.","OK");return;}
- CarnetDepenses.Partage.Ajouter(new Depense{Description=Description.Trim(),Montant=valeur,Categorie=Categorie,Date=Date??DateTime.Today});
+ // Enregistre la dépense dans depenses.db3.
+ await depot.Initialiser();
+ await depot.Ajouter(new Depense{Description=Description.Trim(),Montant=valeur,Categorie=Categorie,Date=Date??DateTime.Today});
  await Shell.Current.DisplayAlertAsync("Succès","La dépense a été ajoutée.","OK");
  await Shell.Current.GoToAsync("..");
  }

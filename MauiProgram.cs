@@ -6,6 +6,9 @@ namespace MauiApp1
     {
         public static MauiApp CreateMauiApp()
         {
+            // Le moteur SQLite doit être prêt avant la première ouverture de la base de données.
+            SQLitePCL.Batteries_V2.Init();
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

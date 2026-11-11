@@ -396,3 +396,21 @@ Nous avons appliqué la méthode **MVVM** pour mieux organiser le code de notre 
 - **ObservableCollection** : mise à jour automatique de la liste après l'ajout d'une dépense.
 - **INotifyPropertyChanged** : mise à jour des informations affichées dans l'interface.
 
+# 💾 Semaine 4 - Enregistrement avec SQLite
+
+Avant, les dépenses disparaissaient quand on fermait l'application.
+Maintenant, elles sont enregistrées dans une base de données SQLite (`depenses.db3`).
+
+## Ce que nous avons fait
+
+- Installation des paquets `sqlite-net-pcl` (1.9.172) et `SQLitePCLRaw.bundle_green` (2.1.11).
+- Ajout de `SQLitePCL.Batteries_V2.Init();` dans `MauiProgram.cs`.
+- Ajout d'un `Id` dans la classe `Depense`.
+- Création de la classe `DepotDepenses` pour lire et ajouter les dépenses dans la base.
+- La liste et le tableau de bord lisent maintenant les dépenses dans la base.
+- Un seul clic sur une dépense ouvre maintenant son détail.
+
+## Résultat
+
+Quand on ajoute une dépense, puis qu'on ferme et rouvre l'application, la dépense est toujours là 
+On peut voir les dépenses enregistrées avec DB Browser for SQLite.

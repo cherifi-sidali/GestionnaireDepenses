@@ -1,9 +1,19 @@
 using MauiApp1.Models;
+using MauiApp1.Services;
 using System.Linq;
 namespace MauiApp1.ViewModels;
 public class TableauDeBordViewModel:BaseViewModel {
- public string Total=>$"{CarnetDepenses.Partage.Lignes.Sum(d=>d.Montant):N2} $";
- public int Nombre=>CarnetDepenses.Partage.Lignes.Count;
+ private readonly DepotDepenses depot=new();
+ private string total="0,00 $";
+ private int nombre;
+ public string Total {get=>total;set{total=value;Notifier();}}
+ public int Nombre {get=>nombre;set{nombre=value;Notifier();}}
  public Command VoirDepensesCommand {get;}=new(async()=>await Shell.Current.GoToAsync("ListeDepuisAccueil"));
- public TableauDeBordViewModel(){CarnetDepenses.Partage.Lignes.CollectionChanged+=(_,_)=>{Notifier(nameof(Total));Notifier(nameof(Nombre));};}
+ // Relit depenses.db3 pour calculer le total et le nombre de transactions.
+ public async Task Charger(){
+ await depot.Initialiser();
+ List<Depense> lignes=await depot.Lire();
+ Total=$"{lignes.Sum(d=>d.Montant):N2} $";
+ Nombre=lignes.Count;
+ }
 }

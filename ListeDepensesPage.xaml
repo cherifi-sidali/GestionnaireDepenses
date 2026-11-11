@@ -68,7 +68,7 @@
                                 <Label.GestureRecognizers>
 
                                     <TapGestureRecognizer
-                                        NumberOfTapsRequired="2"
+                                        NumberOfTapsRequired="1"
                                         Tapped="Depense_DoubleTapped" />
 
                                 </Label.GestureRecognizers>

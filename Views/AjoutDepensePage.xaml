@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.AjouterDepensePage"
+             Title="Ajouter une dépense">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Ajouter une dépense"
+                   FontSize="26"
+                   FontAttributes="Bold" />
+
+            <Label Text="Description" />
+            <Entry x:Name="DescriptionEntry"
+                   Placeholder="Ex : Restaurant" Text="{Binding Description}" />
+
+            <Label Text="Montant" />
+            <Entry x:Name="MontantEntry"
+                   Placeholder="Ex : 25,50" Text="{Binding Montant}"
+                   Keyboard="Numeric" />
+
+            <Label Text="Catégorie" />
+            <Picker x:Name="CategoriePicker"
+                    Title="Choisir une catégorie" ItemsSource="{Binding Categories}" SelectedItem="{Binding Categorie}">
+            </Picker>
+
+            <Label Text="Date" />
+            <DatePicker x:Name="DateDepensePicker" Date="{Binding Date}" />
+
+            <Button Text="Ajouter"
+                    Command="{Binding AjouterCommand}" />
+
+            <Button Text="Retour"
+                    Command="{Binding RetourCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

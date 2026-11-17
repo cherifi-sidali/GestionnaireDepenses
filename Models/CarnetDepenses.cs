@@ -7,4 +7,5 @@ public class CarnetDepenses
     public static CarnetDepenses Partage { get; } = new();
 
     public Depense? Ouverte { get; set; }
+    public bool EnModification { get; set; }
 }

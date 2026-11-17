@@ -86,6 +86,27 @@
 
             </Border>
 
+            <!-- Modifier -->
+            <Button Text="✏️ Modifier"
+        Command="{Binding ModifierCommand}"
+        BackgroundColor="#2563EB"
+        TextColor="White"
+        FontSize="18"
+        FontAttributes="Bold"
+        CornerRadius="15"
+        HeightRequest="55" />
+
+            <!-- Supprimer -->
+            <Button Text="🗑️ Supprimer"
+        Command="{Binding SupprimerCommand}"
+        BackgroundColor="#DC2626"
+        TextColor="White"
+        FontSize="18"
+        FontAttributes="Bold"
+        CornerRadius="15"
+        HeightRequest="55" />
+
+
             <!-- Retour -->
             <Button Text="← Retour"
                     Command="{Binding RetourCommand}"

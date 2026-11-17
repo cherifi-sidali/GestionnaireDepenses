@@ -8,7 +8,7 @@
     BackgroundColor="#F5F3FF">
 
     <Grid Padding="20"
-          RowDefinitions="Auto,*,Auto"
+          RowDefinitions="Auto,Auto,*,Auto"
           RowSpacing="15">
 
         <!-- TITRE -->
@@ -28,13 +28,27 @@
                    HorizontalTextAlignment="Center" />
 
         </VerticalStackLayout>
-
+        <!-- RECHERCHE ET FILTRE -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <Entry Placeholder="🔍 Chercher une description" Text="{Binding Recherche}" />
+            <Picker Grid.Column="1"
+        Title="Catégorie"
+        WidthRequest="160"
+        TextColor="#222222"
+        TitleColor="#6B7280"
+        ItemsSource="{Binding Filtres}"
+        SelectedItem="{Binding Filtre}" />
+        </Grid>
         <!-- LISTE -->
         <CollectionView
-            Grid.Row="1"
+            Grid.Row="2" 
             x:Name="ListeDepenses"
             SelectionMode="Single" ItemsSource="{Binding Lignes}" SelectedItem="{Binding Selection, Mode=TwoWay}">
-
+            <CollectionView.EmptyView>
+                <Label Text="Aucune dépense pour cette recherche."
+           HorizontalOptions="Center"
+           TextColor="#6B7280" />
+            </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
 
                 <DataTemplate>
@@ -83,7 +97,7 @@
         </CollectionView>
 
         <!-- BOUTONS -->
-        <VerticalStackLayout Grid.Row="2"
+        <VerticalStackLayout Grid.Row="3"
                              Spacing="10">
 
             <Button Text="👁️ Voir le détail"

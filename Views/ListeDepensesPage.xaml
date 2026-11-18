@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -8,7 +8,7 @@
     BackgroundColor="#F5F3FF">
 
     <Grid Padding="20"
-          RowDefinitions="Auto,*,Auto"
+          RowDefinitions="Auto,Auto,*,Auto"
           RowSpacing="15">
 
         <!-- TITRE -->
@@ -28,13 +28,27 @@
                    HorizontalTextAlignment="Center" />
 
         </VerticalStackLayout>
-
+        <!-- RECHERCHE ET FILTRE -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <Entry Placeholder="🔍 Chercher une description" Text="{Binding Recherche}" />
+            <Picker Grid.Column="1"
+        Title="Catégorie"
+        WidthRequest="160"
+        TextColor="#222222"
+        TitleColor="#6B7280"
+        ItemsSource="{Binding Filtres}"
+        SelectedItem="{Binding Filtre}" />
+        </Grid>
         <!-- LISTE -->
         <CollectionView
-            Grid.Row="1"
+            Grid.Row="2" 
             x:Name="ListeDepenses"
             SelectionMode="Single" ItemsSource="{Binding Lignes}" SelectedItem="{Binding Selection, Mode=TwoWay}">
-
+            <CollectionView.EmptyView>
+                <Label Text="Aucune dépense pour cette recherche."
+           HorizontalOptions="Center"
+           TextColor="#6B7280" />
+            </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
 
                 <DataTemplate>
@@ -48,6 +62,13 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="18" />
                         </Border.StrokeShape>
+
+                        <!-- Un seul clic n'importe où sur la carte ouvre le détail -->
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding BindingContext.OuvrirCommand, Source={x:Reference PageListe}}" CommandParameter="{Binding}" />
+                        </Border.GestureRecognizers>
 
                         <Grid ColumnDefinitions="Auto,*"
                               ColumnSpacing="15">
@@ -63,17 +84,7 @@
                                    Text="{Binding Resume}"
                                    FontSize="17"
                                    TextColor="#222222"
-                                   VerticalOptions="Center">
-
-                                <Label.GestureRecognizers>
-
-                                    <TapGestureRecognizer
-                                        NumberOfTapsRequired="2"
-                                        Command="{Binding BindingContext.OuvrirCommand, Source={x:Reference PageListe}}" CommandParameter="{Binding}" />
-
-                                </Label.GestureRecognizers>
-
-                            </Label>
+                                   VerticalOptions="Center" />
 
                         </Grid>
 
@@ -86,7 +97,7 @@
         </CollectionView>
 
         <!-- BOUTONS -->
-        <VerticalStackLayout Grid.Row="2"
+        <VerticalStackLayout Grid.Row="3"
                              Spacing="10">
 
             <Button Text="👁️ Voir le détail"

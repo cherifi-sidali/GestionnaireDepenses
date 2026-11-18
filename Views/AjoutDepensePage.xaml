@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.Views.AjouterDepensePage"
-             Title="Ajouter une dépense">
+             Title="{Binding TitrePage}">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="Ajouter une dépense"
+            <Label Text="{Binding TitrePage}"
                    FontSize="26"
                    FontAttributes="Bold" />
 
@@ -28,7 +28,7 @@
             <Label Text="Date" />
             <DatePicker x:Name="DateDepensePicker" Date="{Binding Date}" />
 
-            <Button Text="Ajouter"
+            <Button Text="{Binding LibelleAction}"
                     Command="{Binding AjouterCommand}" />
 
             <Button Text="Retour"

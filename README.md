@@ -414,3 +414,42 @@ Maintenant, elles sont enregistrées dans une base de données SQLite (`depenses
 
 Quand on ajoute une dépense, puis qu'on ferme et rouvre l'application, la dépense est toujours là 
 On peut voir les dépenses enregistrées avec DB Browser for SQLite.
+
+---
+
+# 🔎 Semaine 5 - Chercher, filtrer, modifier et supprimer
+
+Cette semaine, nous avons ajouté au Gestionnaire de dépenses les fonctionnalités vues dans la démo **Liste de tâches** du module 7.
+Le travail a été divisé en trois parties, une par membre de l'équipe.
+
+## 🔍 Partie 1 - Chercher et filtrer
+
+- Un champ de recherche filtre les dépenses par **description** pendant la saisie.
+- Un `Picker` filtre les dépenses par **catégorie** (Toutes, Alimentation, Transport, Logement, Loisirs, Autre).
+- Le ViewModel garde une copie complète des dépenses (`toutes`) et n'affiche dans `Lignes` que celles qui correspondent.
+- Un message s'affiche quand aucune dépense ne correspond (`EmptyView`).
+- La liste et le tableau de bord relisent la base à chaque apparition (`OnAppearing`).
+
+## 🗑️ Partie 2 - Modifier et supprimer depuis le détail
+
+- La page **Détail** contient maintenant deux boutons : ✏️ **Modifier** et 🗑️ **Supprimer**.
+- **Supprimer** demande une confirmation, puis retire la dépense de `depenses.db3` avec `DeleteAsync`.
+- **Modifier** indique au carnet (`EnModification`) que le formulaire doit s'ouvrir en mode modification.
+
+## ✏️ Partie 3 - Le formulaire en mode modification
+
+- Le même formulaire sert à **ajouter** et à **modifier** une dépense.
+- En mode modification, le formulaire est prérempli, le titre devient « Modifier la dépense » et le bouton devient « Enregistrer ».
+- L'enregistrement utilise `UpdateAsync` : la base retrouve la ligne grâce à son `Id`, qui ne change pas.
+- Après l'enregistrement, l'application revient à la liste, qui affiche la dépense modifiée.
+
+## ✅ Résultat
+
+L'utilisateur peut maintenant :
+
+1. Chercher une dépense par sa description.
+2. Filtrer les dépenses par catégorie.
+3. Ajouter une dépense.
+4. Modifier une dépense existante.
+5. Supprimer une dépense après confirmation.
+6. Retrouver tous ces changements après avoir fermé et rouvert l'application.
